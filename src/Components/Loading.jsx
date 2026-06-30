@@ -15,7 +15,7 @@ const Loading = () => {
     <div className='w-full h-full flex justify-center items-center bg-black text-white '>
    
    {showTimeoutMessage && (
-        <h1 className="text-2xl absolute top-10">Taking Too Long Let's Refresh</h1>
+        <h1 className="text-2xl absolute top-10">Taking Too Long? Let's Refresh</h1>
       )}
       <img  className="h-[100vw] sm:h-[50vw] object-cover"src={loader} />
     </div>

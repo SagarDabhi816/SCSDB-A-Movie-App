@@ -20,7 +20,7 @@ function Home() {
         data.results[(Math.random() * data.results.length).toFixed()];
       setwallpaper(randomdata);
     } catch (error) {
-      console.log("Error" + error);
+      console.error("Error" + error);
     }
   }; 
 
@@ -29,7 +29,7 @@ function Home() {
       const { data } = await axios.get(`/trending/${catagory}/day`);
       settrending(data.results);
     } catch (error) {
-      console.log("Error" + error);
+      console.error("Error" + error);
     }
   };
   useEffect(() => { 

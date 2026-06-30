@@ -23,6 +23,6 @@ export const asyncloadtvs = (id) => async (dispatch, getstate) => {
     };
     dispatch(loadtv(ultimatedetails));
   } catch (error) {
-    console.log("Error is = ", error);
+    console.error("Error is = ", error);
   }
 };

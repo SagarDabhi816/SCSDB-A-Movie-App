@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Noimg from "../../../public/download.png"
 
-
+// Home page slider
 const HorizontalCards = ({ data ,title }) => {
   return (
       <div className="w-full sm:flex overflow-y-hidden mb-5 sm:m-5 sm:p-10 sm:p-0"> 

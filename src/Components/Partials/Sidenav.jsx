@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,74 +9,65 @@ const Sidenav = () => {
   };
 
   return (
-    <div>
-      {/* Hamburger Icon (visible on small screens) */}
-      <button
-        className="sm:hidden p-2 text-white ml-2 mt-2"
-        onClick={toggleSidenav}
+    <>
+      {/* Mobile Hamburger Button */}
+      <div className="sm:hidden p-4">
+        <button className="text-white text-3xl" onClick={toggleSidenav}>
+          <i className="ri-menu-3-line"></i>
+        </button>
+      </div>
+
+      {/* Sidenav Container */}
+      <div
+        onClick={() => setIsOpen(false)}
+        className={`fixed top-0 left-0 h-full w-64 bg-[#1F1F1F] z-[999999] border-r border-zinc-700 transition-transform duration-300 ease-in-out transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } sm:translate-x-0 sm:static sm:w-[20%]`}
       >
-        <i className={`ri-${isOpen ? "close" : "menu"}-fill text-4xl`}></i>
-      </button>
-
-      {/* Sidenav */}
-      <div className={`z-[999990] fixed top-0 left-0 w-64 h-full bg-gray-800 border-r-2 border-zinc-500 transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0 sm:static sm:w-auto sm:block`}>
-        <div className="p-5 sm:w-[19vw] w-full">
-          {/* Close Button (visible only when sidenav is open) */}
-          {isOpen && (
-            <button className="sm:hidden p-2 text-white" onClick={toggleSidenav}>
-              <i className="ri-close-fill text-5xl"></i>
-            </button>
-          )}
-
-          <h1 className="text-2xl text-white font-bold">
-            <i className="text-[#6556CD] ri-tv-fill mr-2"></i>
-            <span className="text-xl">SCSDB.</span>
-          </h1>
-
-          <nav className="flex flex-col text-zinc-400 gap-2 text-xl">
-            <h1 className="text-2xl text-white font-semibold mt-5 mb-5">
-              New Feeds
+        <div className="p-6">
+          <div className="flex justify-between items-center sm:block">
+            <h1 className="text-2xl text-white font-bold">
+              <i className="text-[#6556CD] ri-tv-fill mr-2"></i>
+              <span>SCSDB.</span>
             </h1>
-            <Link to="/Trending" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-fire-fill"></i>
-              Trending
+            <button className="sm:hidden text-white text-2xl" onClick={toggleSidenav}>
+              <i className="ri-close-line"></i>
+            </button>
+          </div>
+
+          <nav className="flex flex-col text-zinc-400 gap-2 mt-10 text-lg">
+            <h1 className="text-white font-semibold mb-2">New Feeds</h1>
+            <Link to="/trending" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-fire-fill mr-2"></i> Trending
             </Link>
-            <Link to="/Popular" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-bard-fill"></i>
-              Popular
+            <Link to="/popular" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-bard-fill mr-2"></i> Popular
             </Link>
-            <Link to="/Movie" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-clapperboard-fill"></i>
-              Movies
+            <Link to="/movie" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-clapperboard-fill mr-2"></i> Movies
             </Link>
-            <Link to="/tv" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-computer-fill"></i>
-              Tv Shows
+            <Link to="/tv" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-tv-2-fill mr-2"></i> Tv Shows
             </Link>
-            <Link to="/People" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-team-fill"></i>
-              People
+            <Link to="/person" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-team-fill mr-2"></i> People
             </Link>
           </nav>
 
-          <hr className="border-none h-[1px] bg-zinc-500 mt-4"/>
+          <hr className="my-6 border-zinc-700" />
 
-          <nav className="flex flex-col text-zinc-400 gap-2 text-xl w-full">
-            <h1 className="text-xl text-white font-semibold mt-5 mb-5 hidden sm:block">
-              Website Information
-            </h1>
-            <Link to="/about" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-information-fill"></i>
-              About SCSDB
+          <nav className="flex flex-col text-zinc-400 gap-2 text-lg">
+            <h1 className="text-white font-semibold mb-2">Website Information</h1>
+            <Link to="/about" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-information-fill mr-2"></i> About SCSDB
             </Link>
-            <Link to="/Contact" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-4">
-              <i className="mr-4 ri-phone-fill"></i>
-              Contact Us
+            <Link to="/contact" className="hover:bg-[#6556CD] hover:text-white p-3 rounded-lg duration-300">
+              <i className="ri-phone-fill mr-2"></i> Contact Us
             </Link>
           </nav>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
