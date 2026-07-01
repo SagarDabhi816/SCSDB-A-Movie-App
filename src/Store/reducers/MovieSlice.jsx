@@ -14,14 +14,9 @@ export const movieSlice = createSlice({
     removemovie:(state,action) =>{
         state.info = null
     },
-    setMovieDetails(state, action) {
-   const movie = action.payload;
-
-   state.movieDetails[movie.id] = movie;
-}
    }
   })
   
-  export const { loadmovie , removemovie , setMovieDetails } = movieSlice.actions
+  export const { loadmovie , removemovie } = movieSlice.actions
   
   export default movieSlice.reducer

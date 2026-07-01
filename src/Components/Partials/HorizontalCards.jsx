@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Noimg from "../../../public/download.png"
 
-// Home page slider
 const HorizontalCards = ({ data ,title }) => {
   return (
-      <div className="w-full sm:flex overflow-y-hidden mb-5 sm:m-5 sm:p-10 sm:p-0"> 
+      <div className="w-full sm:flex overflow-y-hidden mb-5 sm:m-5 sm:p-10 "> 
         {data.length >0 ? data.map((d, i) => (
           <Link to={`/${d.media_type || title}/details/${d.id}`} key={i} className="sm:min-w-[17%] mr-5 mb-5 bg-zinc-900 rounded-md ">
             <img

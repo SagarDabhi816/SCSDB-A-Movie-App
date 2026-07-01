@@ -1,6 +1,6 @@
-export { removeperson } from "../reducers/personSlice";
+export { removeperson } from "../reducers/PersonSlice";
 import axios from "../../Utils/axios";
-import { loadperson } from "../reducers/personSlice";
+import { loadperson } from "../reducers/PersonSlice";
 
 export const asyncloadperson = (id) => async (dispatch, getstate) => {
   try {
@@ -10,15 +10,13 @@ export const asyncloadperson = (id) => async (dispatch, getstate) => {
     const tvcredits = await axios.get(`/person/${id}/tv_credits`);
     const movie = await axios.get(`/person/${id}/movie_credits`);
 
-
-
     let ultimatedetails = {
       detail: detail.data,
       externalid: externalid.data,
       combinedcredits: combinedcredits.data,
       movie: movie.data,
       tvcredits: tvcredits.data,
-    };  
+    };
 
     dispatch(loadperson(ultimatedetails));
   } catch (error) {
