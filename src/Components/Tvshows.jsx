@@ -2,10 +2,8 @@ import axios from "../Utils/axios";
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Loading from "./Loading";
-import Topnav from "./Partials/Topnav";
-import Dropdown from "./Partials/Dropdown";
+import { Topnav, Dropdown, Cards } from "./PartialImports";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Cards from "./Partials/Cards";
 
 
 const tv = () => {
